@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+	background-image: url('/img/chartreux.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+.flex-form input[type="submit"] {
+	background: #ef3f5a;
+	border: 1px solid #ef3f5a;
+	color: #fff;
+	padding: 0 30px;
+	cursor: pointer;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.flex-form input[type="submit"]:hover {
+	background: #d73851;
+	border: 1px solid #d73851;
+}
+.flex-form {
+	box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+	line-height: 40px;
+	font-size: 1rem;
+}
+input[type="url"] {
+	width: 70%;
+	padding: 0 10px;
+}
+</style>
+<script>
+	function share(){
+		var xmlhttpLoadLink = new XMLHttpRequest();
+		xmlhttpLoadLink.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("p1").innerHTML = this.responseText;
+			}
+		}
+		xmlhttpLoadLink.open("POST", "", true);
+		xmlhttpLoadLink.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttpLoadLink.send("loadLinkTable=true");
+		
+		var xmlhttpIp = new XMLHttpRequest();
+		xmlhttpIp.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("Logo").innerHTML = this.responseText;
+			}
+		}
+		xmlhttpIp.open("POST", "", true);
+		xmlhttpIp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttpIp.send("Logo=true");
+	}
+</script>
+<body onload="share()">
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div id='Logo' class="w3-display-topleft w3-padding-large w3-xlarge">
+    Logo
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top">PUT YOUR LINK HERE</h1>
+	<form action="/" method="post" class="w3-center flex-form">
+		<input type="url" name="link" placeholder="Which you want to share?">
+		<input type="submit" value="Share">
+	</form>
+    <p id='p1' class="w3-large w3-center"></p>
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+  </div>
+</div>
+
+</body>
+</html>
