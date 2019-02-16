@@ -15,4 +15,4 @@ Create a crontab to make this service automatic startup
 @reboot cd /home/pi/"nodejs share-link-server"/ && /usr/bin/node /home/pi/"nodejs share-link-server"/server.js
 </pre>
 
-See my blog for any problem
+See my blog for any problem: https://baotden.wordpress.com/?p=87
