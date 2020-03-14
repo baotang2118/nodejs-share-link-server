@@ -16,3 +16,6 @@ Create a crontab to make this service automatic startup
 </pre>
 
 See my blog for any problem: https://baotden.wordpress.com/?p=87
+
+![Web UI](/web UI result/nodejs-share-link-seerver_Web UI.png)
+Web UI
